@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+
+  # nginx
+  nginx:
+    privileged: true
+    restart: always
+    image: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/htpasswd:/etc/nginx/.htpasswd
+      - ./:/var/www/html
+    environment:
+      # Your own host name here
+      - VIRTUAL_HOST=api.shiftgate-development.com
+      - LETSENCRYPT_HOST=api.shiftgate-development.com
+      - LETSENCRYPT_EMAIL=hoge@mail.com
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 5m
+        max-file: "10"
+
+  # php-fpm
+  php-fpm:
+    privileged: true
+    restart: always
+    image: docker-registry.paxcreation.com:5000/paxcreation/php:7.3-fpm
+    volumes:
+      - ./:/var/www/html
+      - ./php7/custom_settings.ini:/usr/local/etc/php/conf.d/custom_settings.ini
+
+networks:
+  default:
+    external:
+      name: shared

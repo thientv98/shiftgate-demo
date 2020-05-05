@@ -1,0 +1,61 @@
+server {
+    listen 80;
+    server_name mems-api_php-fpm_1;
+    root /var/www/html/public;
+    index index.php index.html;
+    charset utf-8;
+    client_max_body_size 20m;
+    sendfile        off;
+    keepalive_timeout  65;
+
+    set_real_ip_from proxy;
+    real_ip_header X-Forwarded-For;
+
+    access_log /var/www/html/nginx/logs/access.log;
+    error_log /var/www/html/nginx/logs/error.log;
+
+    if ($http_x_forwarded_proto != https) {
+        return 301 https://$host$request_uri;
+    }
+
+	location ~* \.(?:css|js|ico|png|jpe?g|gif)$ {
+		access_log off;
+	}
+
+    location / {
+    	# Basic-Auth ID:PW / mems:j8wfjwl
+        #auth_basic "Restricted";
+        #auth_basic_user_file /etc/nginx/.htpasswd;
+        try_files $uri /index.php?$query_string;
+    }
+
+    #location ^~ /api/ {
+    #    try_files $uri /index.php?$query_string;
+    #    satisfy any;
+    #    allow   all;
+    #}
+
+    #location ^~ /uploads/ {
+    #    try_files $uri /index.php?$query_string;
+    #    satisfy any;
+    #    allow   all;
+    #}
+
+    #location ^~ /healthcheck.html {
+    #    try_files $uri /index.php?$query_string;
+    #    satisfy any;
+    #    allow   all;
+    #}
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass mems-api_php-fpm_1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        include       fastcgi_params;
+    }
+}

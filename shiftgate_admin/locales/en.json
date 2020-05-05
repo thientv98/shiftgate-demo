@@ -1,0 +1,24 @@
+{
+    "home": {
+        "title": "SHIFTGATE"
+    },
+    "login": {
+        "headline": "Form Login",
+        "email": "Email",
+        "password": "Password",
+        "submit": "Submit"
+    },
+    "menu": {
+        "001": "TRADE_LIST",
+        "002": "ADMIN_LIST",
+        "003": "MEMBER_LIST",
+        "004": "INFO_LIST"
+    },
+    "common": {
+        "paging_loading": "Data is loading...",
+        "paging_no_data": "No data",
+        "success": "Success",
+        "failed": "Error",
+        "delete_success": "Deleted"
+    }
+}

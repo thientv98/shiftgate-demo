@@ -1,0 +1,284 @@
+.mdi:before, .mdi-set{
+    font-size: 20px;
+}
+.item-row {
+    .row-padding{
+        padding: 0 30px;
+    }
+    .mdi:before{
+        padding-bottom: 3px;
+        font-size: 10px;
+        color: red !important;
+    }
+}
+.v-navigation-drawer{
+    .v-navigation-drawer__content{
+        background: rgba(27,27,27,.74);
+        .v-list{
+            background: none;
+            .v-list-item__title{
+                font-size: 14px;
+            }
+        }
+    }
+    
+}
+
+.v-content{
+    background-color: #ECF0F5;
+    .wrap-breadcrumbs{
+        .title{
+            position: relative;
+            top: 12px;
+        }
+    }
+    .v-toolbar{
+        border: 1px solid #e7e7e7 !important;
+        background-color: #F8F8F8 !important;
+    }
+    .v-text-field {
+
+        .box-search-header{
+            .v-input__slot{
+                background: hsla(0,0%,100%,.16);
+                padding: 0 12px;
+            }
+            input{
+                color: #fff;
+                max-height: 32px;
+                line-height: 20px;
+                padding: 8px 0;
+                max-width: 100%;
+                min-width: 0;
+                width: 100%;
+            }
+        }
+    }
+    .v-application--is-ltr .v-list-item__action:first-child, .v-application--is-ltr .v-list-item__icon:first-child{
+        margin-right: 20px !important;
+    }
+    
+    .possition-relative{
+        position: relative;
+    }
+    
+    .possition-absolute{
+        position: absolute;
+    }
+
+    .bg-grey{
+        background-color: #e7e7e7;
+    }
+    
+    .form-data{
+        border-top: 3px solid #3c8dbc !important;
+        .v-text-field{
+            padding: 0;
+            margin: 0;
+        }
+        .item-row .col{
+            padding: 5px !important;
+            margin: 0 !important;
+        }
+        .no-padding{
+            padding: 0 !important;
+        }
+        .v-subheader {
+            font-size: 1.25rem;
+            position: relative;
+            color: black;
+            padding: 0;
+            top: 3px;
+        }
+        .border-card-html:hover {
+            border-color: currentColor !important;
+            border-style: solid !important;
+        }
+    }
+    .v-btn{
+        padding: 2px 10px !important;
+    } 
+}
+.search-show {
+    height: 100%;
+    transition: opacity 1s linear, height 1s step-start;
+}
+.search-hidden {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition-timing-function: opacity 0.5s linear, step-end;
+}
+
+.wrapper-content{
+    .wrap-breadcrumbs{
+        max-height: 40px;
+    }
+    
+    .v-card__title ,.title-input{
+        font-size: 13px !important;
+    }
+
+    .button-select button{
+        border-radius: 0px;
+    }
+
+    .button-select button .v-btn__content{
+        font-size: 13px;
+        padding: 5px 15px;
+    }
+
+    .v-input{
+        border-radius: unset !important;
+        max-height: 35px;
+    }
+
+    .v-input fieldset{
+        height: 35px;
+    }
+    .v-input .v-text-field__slot{
+        height: 31px !important;
+    }
+
+    .v-input .v-text-field__slot input{
+        font-size: 13px !important;
+    }
+
+    .v-input.v-textarea{
+        max-height: unset !important;
+    }
+
+    .v-input.v-textarea fieldset{
+        height: unset;
+    }
+
+    .v-input.v-textarea .v-text-field__slot{
+        height: unset !important;
+    }
+
+    .v-input__control{
+        font-size: 13px;
+    }
+
+    .v-input__control .v-input__slot{
+        margin-bottom: 0px;
+        min-height: 30px !important;
+    }
+
+    .v-input__control .v-input__slot .v-select__slot{
+        height: 30px;
+    }
+
+    .v-input__icon{
+        height: 13px;
+    }
+
+    .v-btn{
+        border-radius: unset;
+        height: 30px !important;
+        box-shadow: unset;
+    }
+
+    .table-option td{
+        padding: 5px 2px !important;
+    }
+
+    .table-option td:first-child{
+        background-color: #e0e0e0;
+    }
+
+    .v-input--checkbox{
+        margin-top: -10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .v-input--checkbox .v-input--selection-controls__input{
+        margin: 0px;
+    }
+
+    .title-custom{
+        font-size: 13px;
+    }
+
+    .item-row .mdi:before{
+        color: black;
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active  {
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+    }
+    .v-text-field__slot input{
+        max-height: 26px;
+    }
+    .v-input--checkbox .v-input--selection-controls__ripple,
+    .v-radio .v-input--selection-controls__ripple{
+        left: -14px;
+    }
+}
+
+.v-input--radio-group__input label{
+    font-size: 14px;
+}
+
+.font-13 {
+    font-size: 13px;
+}
+
+.custom-table {
+    border: 1px solid #d4d4d4 !important;
+
+    th{
+        background-color: #ECEFF1 !important;
+        font-weight: unset;
+        font-size: 13px !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        &:not(:last-child) {
+            border-right: 1px solid #d4d4d4 !important;
+        }
+    }
+    
+    .v-data-table__wrapper {
+        overflow-x: hidden !important;
+    }
+      
+    tbody {
+        tr {
+            border-bottom: 1px solid #d4d4d4 !important;
+            td {
+                padding: 3px 7px;
+                &:not(:last-child) {
+                    border-right: 1px solid #d4d4d4 !important;
+                }
+                .space-link {
+                    display: inline-block;
+                    text-overflow: ellipsis;
+                    max-width: 140px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    vertical-align: middle !important;
+                }
+            }
+        }
+    }
+
+    .v-input {
+        .v-input__control .v-input__slot {
+            box-shadow: unset !important;
+        }
+    }
+}
+
+.view-more {
+    font-size: 13px;
+    float: right;
+    padding-top: 3px;
+}
+
+.v-navigation-drawer__content{
+    .v-toolbar__title{
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,10 @@
+const ROW_PER_PAGE = 20;
+const ROW_PER_PAGE_MODAL = 10;
+const ITEM_PER_PAGE_OPTIONS = [5, 10, 15, 20];
+
+export default {
+    ROW_PER_PAGE,
+    ROW_PER_PAGE_MODAL,
+    ITEM_PER_PAGE_OPTIONS,
+
+};

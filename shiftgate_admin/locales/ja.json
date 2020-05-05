@@ -1,0 +1,26 @@
+{
+    "home": {
+        "title": "SHIFTGATE"
+    },
+    "login": {
+        "headline": "ログイン",
+        "email": "メールアドレス",
+        "password": "パスワード",
+        "link": "パスワード再発行",
+        "submit": "ログイン",
+        "forgot_password": "パスワード再発行"
+    },
+    "menu": {
+        "001": "車両一覧",
+        "002": "コンシェルジュ管理",
+        "003": "顧客管理",
+        "004": "お知らせ管理"
+    }, 
+    "common": {
+        "paging_loading": "データを読み込んでいます...",
+        "paging_no_data": "一致するデータが見つかりません",
+        "success": "保存しました",
+        "failed": "Error",
+        "delete_success": "削除しました"
+    }
+}
