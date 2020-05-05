@@ -214,11 +214,12 @@
 .self .cm-msg-text::after {
     content: attr(data-time);
     position: absolute;
-    right: 15px;
+    right: -16px;
     bottom: -19px;
     display: block;
     font-size: .750rem;
     color: rgba(84, 110, 122,1.0);
+    width: 100px;
 }
 .user .cm-msg-text::after {
     content: attr(data-time);
@@ -228,4 +229,5 @@
     display: block;
     font-size: .750rem;
     color: rgba(84, 110, 122,1.0);
+    width: 100px;
 }
