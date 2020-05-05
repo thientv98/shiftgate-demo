@@ -41,11 +41,7 @@ class SignatureController extends Controller
         $validator = \Validator::make($request->all(), [
             'car_id' => 'required',
             'file_type' => 'required',
-            'email' => 'required|max:255|email|same:userEmail',
-            //'is_workflow_show' => 'required',
-            //'partner_signing_id' => 'required',
-        ],[
-            'email.same' => 'メールアドレスが違います',
+            'signature' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -54,7 +50,13 @@ class SignatureController extends Controller
         }
 
         $params = $request->all();
-        
+        $image = str_replace('data:image/png;base64,', '', $params["signature"]);
+        $image = base64_decode($image);
+        if(Storage::put('car/' . $params["car_id"] . '/temp-signature/' . "signature" . '.' . "png", $image)){
+            return $this->response(true, null, 'Saved signature');
+        }
+        return $this->response(false, null, 'Saved FAIL');
+
         // binding params
         $car = Car::findOrFail($params['car_id']);
         $partner_signing = Customer::findOrFail($request['partner_signing_id']);
