@@ -11,6 +11,7 @@
         
         <Footer />
 
+        <Chat />
     </v-app>
 
 </template>
@@ -19,11 +20,13 @@
 
 import Footer from '~/components/Footer.vue'
 import Header from '~/components/Header.vue'
+import Chat from '~/components/common/Chat.vue'
 
 export default {
     components: {
         Footer,
-        Header
+        Header,
+        Chat
     }
 }
 </script>
