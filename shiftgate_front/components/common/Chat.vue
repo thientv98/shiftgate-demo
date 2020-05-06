@@ -31,8 +31,9 @@
                 </div><!--chat-log -->
             </div>
             <div class="chat-input">
-                <form @submit.prevent="sendMessage()" autocomplete="off">  
-                <input type="text" id="chat-input" placeholder="Send a message..." v-model="message" autocomplete="off"/>
+                <form @submit.prevent="sendMessage()">  
+                <!-- <input type="text" id="chat-input" placeholder="Send a message..." v-model="message" autocomplete="off"/> -->
+                <textarea id="chat-input" placeholder="Send a message..." v-model="message"></textarea>
                 <button type="submit" class="chat-submit" id="chat-submit" :disabled="message == ''"><i class="material-icons">send</i></button>  
                 </form> 
             </div>
@@ -57,6 +58,14 @@ export default {
             ]
         }
     },
+    mounted() {
+        let self = this
+        $('#chat-input').keyup(function (event) { 
+            if (event.keyCode == 13 && !event.shiftKey) {
+                self.sendMessage()
+            }
+        })
+    },
     methods: {
         showChatBox(){
             $("#chat-circle").toggle('scale')
@@ -69,6 +78,7 @@ export default {
             $(".chat-box").toggle('scale') 
         },
         sendMessage(){
+            console.log('send mess')
             let today = new Date()
             let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()
             let time = today.getHours() + ":" + today.getMinutes()
@@ -83,7 +93,7 @@ export default {
         },
         scrollBottom(){
             $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000);
-        }
+        },
     }
 }
 </script>
