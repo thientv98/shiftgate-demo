@@ -11,6 +11,7 @@ use Illuminate\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Musonza\Chat\Traits\Messageable;
 
 /**
  * @property int $id
@@ -38,7 +39,7 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
  */
 class Customer extends Base implements AuthenticatableContract, AuthorizableContract, JWTSubject
 {
-    use Notifiable, Authorizable, Authenticatable;
+    use Notifiable, Authorizable, Authenticatable, Messageable;
     use MemberSearch;
 
     const TYPE_C = 'C';
