@@ -10,6 +10,7 @@ use App\Models\Notice;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Exception;
+use PDF;
 
 class HomeController extends Controller
 {
@@ -66,6 +67,51 @@ class HomeController extends Controller
 
         $notice = Notice::where('published_date', '<=', Carbon::now())->orderBy('published_date', 'desc')->get();
         return $this->response(true, $notice, trans('common.request.success'));
+    }
+
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    public function createPDF(Request $request)
+    {
+        // set certificate file
+        $certificate = 'file://'.base_path().'/public/tcpdf.crt';
+        // set additional information in the signature
+        $info = array(
+            'Name' => 'TCPDF',
+            'Location' => 'Office',
+            'Reason' => 'Testing TCPDF',
+            'ContactInfo' => 'http://www.tcpdf.org',
+        );
+        // dd($certificate);
+        // set document signature
+        PDF::setSignature($certificate, $certificate, 'tcpdfdemo', '', 2, $info);
+        
+        
+        PDF::SetFont('kozgopromedium', '', 11);
+        PDF::SetTitle('Hello World');
+        PDF::AddPage();
+
+        // print a line of text
+        $text = view('tcpdf');
+        
+        // add view content
+        PDF::writeHTML($text, true, 0, true, 0);
+        
+        // add image for signature
+        PDF::Image('tcpdf.png', 180, 60, 15, 15, 'PNG');
+        
+        // define active area for signature appearance
+        PDF::setSignatureAppearance(180, 60, 15, 15);
+        
+        // dd(public_path('hello_world.pdf'));
+        // save pdf file
+        PDF::Output(public_path('hello_world.pdf'), 'F');
+        PDF::reset();
+
+        dd('pdf created');
     }
 
 }

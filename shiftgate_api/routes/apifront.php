@@ -56,3 +56,5 @@ Route::post('password/reset', 'Auth\ForgotPasswordController@reset');
 Route::post('test-gmo', 'SignatureController@index');
 
 Route::get('notices', 'HomeController@getNotice');
+
+Route::get('/tcpdf', 'HomeController@createPDF')->name('createPDF');
