@@ -36,6 +36,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
     //Chat
     Route::resource('chat/conversations', 'ChatController')->except(['create', 'edit', 'destroy']);
+    Route::get('getConversation', 'ChatController@getConversation');
     Route::group(['prefix' => '/chat/conversations'], function () {
         /* Conversation Participation */
         Route::post('{id}/participants', 'ChatController@storeParticipation');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\ApiFront;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMessage;
+use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use  Musonza\Chat\Facades\ChatFacade as Chat;
 use Musonza\Chat\Models\Participation;
@@ -99,13 +101,14 @@ class ChatController extends Controller
     public function storeMessage(StoreMessage $request, $conversationId)
     {
         /*{
+                "type" : "customer"
                 "message": {
                     "body": "content"
                 }
         }*/
         try {
             $request->validated();
-            $user = $request->user();
+            $user = $request->type ? Customer::find($request->user()->id) : User::find($request->user()->id);
             $conversation = Chat::conversations()->getById($conversationId);
             $data = $request->all()['message']['body'];
             $message = Chat::message($data)
@@ -149,6 +152,32 @@ class ChatController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             return $this->response(true, null, $e->getMessage(), 500);
+        }
+    }
+
+    public function getConversation(Request $request)
+    {
+        $user = $request->user();
+        $conversations = Chat::conversations()->setParticipant($user)->get();
+        if(count($conversations) == 0){
+            $participants = $request->user();
+            $admin = User::all();
+
+            /* Create a new conversation */
+            $conversation = Chat::createConversation([$participants], $request->input('data', []))->makePrivate(false);
+
+            /* Add all the admin to this conversation */
+            foreach ($admin as $item){
+                $conversation->addParticipants([$item]);
+            }
+
+            return $this->response(true, $conversation, 'getConversation');
+        } else {
+            $conversation = Chat::conversations()->getById($conversations[0]->id);
+            $message = Chat::conversation($conversation)
+                ->setParticipant($user)
+                ->getMessages();
+            return $this->response(true, $message, 'getConversation');
         }
     }
 
