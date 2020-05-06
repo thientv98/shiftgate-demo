@@ -50,3 +50,6 @@ Route::get('image-management/upload', function () {
     return view('image_management');
 });
 
+Route::get('pdf/seller', function () {
+    return view('pdf.seller');
+});
