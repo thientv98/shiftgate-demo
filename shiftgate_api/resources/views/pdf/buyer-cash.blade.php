@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Seller</title>
+    <title>Buyer Cash</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         .color-blue{ color: #48628d; }
@@ -54,7 +54,7 @@
     <div class="container">
         <div class="row pt-3">
             <div class="col col-7">
-                <p class="color-blue font-weight-bold">売買契約申込書兼承諾書　（出品者様用）</p>
+                <p class="color-blue font-weight-bold">売買契約申込書兼承諾書　（購入者様用）</p>
             </div>
             <div class="col col-5">
                 <span class="color-blue font-weight-bold font-size-13 pl-2">No</span>
@@ -64,8 +64,9 @@
 
         <div class="row pt-3">
             <div class="col col-12">
-                <p class="font-weight-bold">私（甲）はＩＤ ______________________ 様（乙）にSHIFTGATEサイトに掲載した下記車両を同利用規約を理解、合意したうえで
-                    売却することを申し込み、または承諾いたします。</p>
+                <p class="font-weight-bold">私（乙）はＩＤ ___________________________様（甲）からSHIFTGATEサイトに掲載した下記車両を同利用規約を理解、合意したうえで
+                    購買することを申し込みまたは承諾します。
+                    </p>
             </div>
         </div>
 
@@ -73,7 +74,7 @@
             <div class="col col-7">
                 <div class="row pl-3">
                     <div class="col col-2 px-0">
-                        <p class="color-blue font-weight-bold">ID（甲）</p>
+                        <p class="color-blue font-weight-bold">ID（乙）</p>
                     </div>
                     <div class="col col-10 pt-2">
                         <hr>
@@ -143,7 +144,7 @@
                 </div>
                 <div class="row pl-3">
                     <div class="col col-12">
-                        <p class="font-weight-bold mb-1">同意サイン欄 （ご自身でサインをお願いいたします）</p>
+                        <p class="font-weight-bold mb-1"><b>同意サイン欄</b> （ご自身でサインをお願いいたします）</p>
                     </div>
                     <div class="col col-12">
                         <div class="sign"></div>
@@ -156,7 +157,7 @@
             <div class="col col-12">
                 <div class="row">
                     <div class="col col-12">
-                        <p class="background-1 text-center text-white mb-0 border-top border-left border-right">ご契約車輛</p>
+                        <p class="background-1 text-center text-white mb-0 border-top border-left border-right font-weight-bold">ご契約車輛</p>
                     </div>
                 </div>
 
@@ -218,17 +219,17 @@
         <div class="row pt-3 px-3">
             <div class="col col-6 pl-0 h-100">
                 <div class="border-black text-center">
-                    <p class="font-size-20 font-weight-bold color-blue mb-0 py-1">お支払総額</p>
-                    <p class="font-weight-bold font-size-20 mb-0 pb-1">¥0</p>
+                    <p class="font-size-20 font-weight-bold color-blue mb-0 py-1">現金販売時お支払総額</p>
+                    <p class="font-weight-bold font-size-20 mb-0 pb-1">¥68,450</p>
                 </div>
             </div>
 
             <div class="col col-6 px-0">
                 <div class="border-black font-weight-bold text-center">
                     <p class="mb-0">
-                        売却代金の送金<br>
-                        買主様からの車両受領確認の連絡がSHIFTGATEに到着後、<br>
-                        左記の金額をを下記口座に振り込みます
+                        お支払い<br>
+                        契約締結後5営業日以内に左記金額を下記口座にお支払い<br>
+                        願います。
                     </p>
                 </div>
             </div>
@@ -249,7 +250,7 @@
 
                     <div class="row pr-3">
                         <div class="col col-7 border-left border-right border-top">
-                            <p class="mb-0 text-center font-weight-bold">車両本体価格（A)</p>
+                            <p class="mb-0 text-center font-weight-bold">車両本体価格（A)   </p>
                         </div>
 
                         <div class="col col-5 border-right border-top">
@@ -263,7 +264,7 @@
                         </div>
 
                         <div class="col col-5 border-right border-top">
-                            <p class="mb-0 text-right font-weight-bold">0</p>
+                            <p class="mb-0 text-right font-weight-bold">68,450</p>
                         </div>
                     </div>
 
@@ -293,7 +294,7 @@
                         </div>
 
                         <div class="col col-5 border-right border-top background-4">
-                            <p class="mb-0 text-right font-weight-bold">0</p>
+                            <p class="mb-0 text-right font-weight-bold"> 68,450</p>
                         </div>
                     </div>
 
@@ -303,7 +304,7 @@
                         </div>
 
                         <div class="col col-5 border-right border-top background-4">
-                            <p class="mb-0 text-right font-weight-bold">0</p>
+                            <p class="mb-0 text-right font-weight-bold">6,400</p>
                         </div>
                     </div>
 
@@ -313,7 +314,7 @@
                         </div>
 
                         <div class="col col-5 border-right border-top background-5">
-                            <p class="mb-0 text-right font-weight-bold">0</p>
+                            <p class="mb-0 text-right font-weight-bold">68,450</p>
                         </div>
                     </div>
                 </div>
@@ -346,19 +347,19 @@
                             <p class="mb-0 border-top font-weight-bold">自動車税（本年度分）</p>
                             <p class="mb-0 border-top font-weight-bold">自賠責　</p>
                             <p class="mb-0 border-top font-weight-bold">リサイクル料預託金</p>
-                            <p class="mb-0 border-top font-weight-bold">&nbsp</p>
-                            <p class="mb-0 border-top font-weight-bold">&nbsp</p>
-                            <p class="mb-0 border-top font-weight-bold">&nbsp</p>
+                            <p class="mb-0 border-top font-weight-bold">自動車取得税</p>
+                            <p class="mb-0 border-top font-weight-bold">検査登録印紙</p>
+                            <p class="mb-0 border-top font-weight-bold">車庫証明印紙</p>
                             <p class="mb-0 border-top font-weight-bold background-5">合計（Ｂ）</p>
                         </div>
                         <div class="col col-5 border-left border-right px-0">
                             <p class="mb-0 px-3 border-top font-weight-bold text-right">本体価格に含む</p>
                             <p class="mb-0 px-3 border-top font-weight-bold text-right">本体価格に含む</p>
                             <p class="mb-0 px-3 border-top font-weight-bold text-right">本体価格に含む</p>
-                            <p class="mb-0 border-top">&nbsp</p>
-                            <p class="mb-0 border-top">&nbsp</p>
-                            <p class="mb-0 border-top">&nbsp</p>
-                            <p class="mb-0 px-3 border-top font-weight-bold background-5 text-right">0</p>
+                            <p class="mb-0 px-3 border-top font-weight-bold text-right">0</p>
+                            <p class="mb-0 px-3 border-top font-weight-bold text-right">1,850</p>
+                            <p class="mb-0 px-3 border-top font-weight-bold text-right">2,600</p>
+                            <p class="mb-0 px-3 border-top font-weight-bold background-5 text-right">4,450</p>
                         </div>
                     </div>
 
@@ -372,22 +373,22 @@
                             費
                         </div>
                         <div class="col col-6 border-left px-0">
-                            <p class="mb-0 border-top font-weight-bold">&nbsp</p>
-                            <p class="mb-0 border-top font-weight-bold">&nbsp</p>
-                            <p class="mb-0 border-top font-weight-bold">&nbsp</p>
+                            <p class="mb-0 border-top font-weight-bold">検査登録届出手続代行費</p>
+                            <p class="mb-0 border-top font-weight-bold">車庫証明手続き代行費</p>
+                            <p class="mb-0 border-top font-weight-bold">希望No.取得費用（プレート代含）</p>
                             <p class="mb-0 border-top font-weight-bold">&nbsp</p>
                             <p class="mb-0 border-top font-weight-bold text-center background-4">（小　　　計）</p>
                             <p class="mb-0 border-top font-weight-bold text-center background-4">（内消費税・10%）</p>
                             <p class="mb-0 border-top font-weight-bold background-5">合計（Ｃ）</p>
                         </div>
                         <div class="col col-5 border-left border-right px-0">
+                            <p class="mb-0 border-top font-weight-bold text-right px-3">36,000</p>
+                            <p class="mb-0 border-top font-weight-bold text-right px-3">16,000</p>
+                            <p class="mb-0 border-top font-weight-bold text-right px-3">12,000</p>
                             <p class="mb-0 border-top">&nbsp</p>
-                            <p class="mb-0 border-top">&nbsp</p>
-                            <p class="mb-0 border-top">&nbsp</p>
-                            <p class="mb-0 border-top">&nbsp</p>
-                            <p class="mb-0 border-top font-weight-bold background-4 text-right px-3">0</p>
-                            <p class="mb-0 border-top font-weight-bold background-4 text-right px-3">0</p>
-                            <p class="mb-0 border-top font-weight-bold background-5 text-right px-3">0</p>
+                            <p class="mb-0 border-top font-weight-bold background-4 text-right px-3"> 64,000</p>
+                            <p class="mb-0 border-top font-weight-bold background-4 text-right px-3">6,400</p>
+                            <p class="mb-0 border-top font-weight-bold background-5 text-right px-3">64,000</p>
                         </div>
                     </div>
 
@@ -424,7 +425,7 @@
 
                     <div class="row">
                         <div class="col col-7 border-left border-right border-top">
-                            <p class="mb-0 text-center font-weight-bold">&nbsp</p>
+                            <p class="mb-0 text-center font-weight-bold">輸送費　　　0　　　から　　　0</p>
                         </div>
 
                         <div class="col col-5 border-right border-top">
@@ -439,6 +440,46 @@
 
                         <div class="col col-5 border-right border-top">
                             <p class="mb-0 text-right font-weight-bold">&nbsp</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-7 border-left border-right border-top">
+                            <p class="mb-0 text-center font-weight-bold">&nbsp</p>
+                        </div>
+
+                        <div class="col col-5 border-right border-top">
+                            <p class="mb-0 text-center font-weight-bold">&nbsp</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-7 border-left border-right border-top">
+                            <p class="mb-0 text-center font-weight-bold">&nbsp</p>
+                        </div>
+
+                        <div class="col col-5 border-right border-top">
+                            <p class="mb-0 text-center font-weight-bold">&nbsp</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-7 border-left border-right border-top">
+                            <p class="mb-0 text-center font-weight-bold">&nbsp</p>
+                        </div>
+
+                        <div class="col col-5 border-right border-top">
+                            <p class="mb-0 text-right font-weight-bold">&nbsp</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-7 border-left border-right border-top">
+                            <p class="mb-0 text-center font-weight-bold">&nbsp</p>
+                        </div>
+
+                        <div class="col col-5 border-right border-top">
+                            <p class="mb-0 text-center font-weight-bold">&nbsp</p>
                         </div>
                     </div>
 
@@ -483,49 +524,57 @@
                     </div>
                 </div>
 
-                <div class="w-100">
-                    <label class="font-weight-bold font-size-17">振込先</label>
-                    <div class="row">
-                        <div class="col col-4 px-0 border-top-black border-left-black">
-                            <p class="text-center mb-0 py-n">金融機関名</p>
+                <div class="w-100" style="font-weight: 500">
+                    <label class="font-weight-bold font-size-17 mb-0">振込先銀行</label>
+                    <div class="row border-black">
+                        <div class="col col-3">
+                            <p class="mb-0 text-center">銀行名</p>
                         </div>
-                        <div class="col col-8 px-0 border-top-black border-left-black border-right-black">
-                            <p class="text-center mb-0 py-2">&nbsp</p>
+                        <div class="col col-9">
+                            <p class="mb-0 text-center">三井住友銀行</p>
                         </div>
-                        <div class="col col-4 px-0 border-top-black border-left-black">
-                            <p class="text-center mb-0 py-n">支店名</p>
+
+                        <div class="col col-3">
+                            <p class="mb-0 text-center">支店名</p>
                         </div>
-                        <div class="col col-8 px-0 border-top-black border-left-black border-right-black">
-                            <p class="text-center mb-0 py-2">&nbsp</p>
+                        <div class="col col-9">
+                            <p class="mb-0 text-center">日比谷支店(632)</p>
                         </div>
-                        <div class="col col-4 px-0 border-top-black border-left-black">
-                            <p class="text-center mb-0 py-n">口座種類</p>
+
+                        <div class="col col-3">
+                            <p class="mb-0 text-center">口座種類</p>
                         </div>
-                        <div class="col col-8 px-0 border-top-black border-left-black border-right-black">
-                            <p class="text-center mb-0 py-2"> 普通　　　　　　当座</p>
+                        <div class="col col-9">
+                            <p class="mb-0 text-center">普通</p>
                         </div>
-                        <div class="col col-4 px-0 border-top-black border-left-black">
-                            <p class="text-center mb-0 py-n">口座番号</p>
+
+                        <div class="col col-3">
+                            <p class="mb-0 text-center">口座番号</p>
                         </div>
-                        <div class="col col-8 px-0 border-top-black border-left-black border-right-black">
-                            <p class="text-center mb-0 py-2">&nbsp</p>
+                        <div class="col col-9">
+                            <p class="mb-0 text-center">9065512</p>
                         </div>
-                        <div class="col col-4 px-0 border-top-black border-left-black">
-                            <p class="text-center mb-0 py-n">口座名義（漢字）</p>
+
+                        <div class="col col-3">
+                            <p class="mb-0 text-center">口座名</p>
                         </div>
-                        <div class="col col-8 px-0 border-top-black border-left-black border-right-black">
-                            <p class="text-center mb-0 py-2">&nbsp</p>
+                        <div class="col col-9">
+                            <p class="mb-0 text-center">株式会社エスクロー・エージェント・ジャパン信託　シフトゲート信託口</p>
                         </div>
-                        <div class="col col-4 px-0 border-top-black border-left-black border-bottom-black">
-                            <p class="text-center mb-0 py-n">口座名義（ローマ字）</p>
+
+                        <div class="col col-3">
+                            <p class="mb-0 text-center">略称　</p>
                         </div>
-                        <div class="col col-8 px-0 border-top-black border-left-black border-right-black border-bottom-black">
-                            <p class="text-center mb-0 py-2">&nbsp</p>
+                        <div class="col col-9">
+                            <p class="mb-0 text-center">シフトゲート信託口　（シフトゲートシンタクグチ）</p>
                         </div>
+
+                        <div class="col col-12 text-center py-3">※振込手数料は貴方様にてご負担願います。</div>
                     </div>
+
                 </div>
 
-                <div class="w-100" style="padding-top: 18px">
+                <div class="w-100" style="padding-top: 7px">
                     <label class="font-size-20 font-weight-bold mb-0" style="color: #8497b0">（問い合わせ先）SHIFTGATE プラットフォーム運営会社</label>
                     <div class="row border-black pl-1 py-1 pr-4">
                         <p class="font-size-20 font-weight-bold mb-0">株式会社SHIFTGATE</p>

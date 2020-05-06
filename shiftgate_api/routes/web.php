@@ -45,11 +45,15 @@ Route::get('file/download/{id}/{userData}/{key}', function ($id, $userData, $key
 
 Route::any('/ckfinder/examples/{example?}', '\CKSource\CKFinderBridge\Controller\CKFinderController@examplesAction')
     ->name('ckfinder_examples');
-    
+
 Route::get('image-management/upload', function () {
     return view('image_management');
 });
 
 Route::get('pdf/seller', function () {
     return view('pdf.seller');
+});
+
+Route::get('pdf/buyer-cash', function () {
+    return view('pdf.buyer-cash');
 });
