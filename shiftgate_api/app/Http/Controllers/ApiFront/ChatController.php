@@ -170,14 +170,20 @@ class ChatController extends Controller
             foreach ($admin as $item){
                 $conversation->addParticipants([$item]);
             }
-
-            return $this->response(true, $conversation, 'getConversation');
+            $conversation->data['id'] = $conversation->id;
+            return $this->response(true, $conversation, 'New Conversation');
         } else {
             $conversation = Chat::conversations()->getById($conversations[0]->id);
             $message = Chat::conversation($conversation)
                 ->setParticipant($user)
+                ->setPaginationParams([
+                    'perPage' => 1000,
+                ])
                 ->getMessages();
-            return $this->response(true, $message, 'getConversation');
+            if(!count($message)){
+                $message['id'] = $conversations[0]->id;
+            }
+            return $this->response(true, $message, 'Get Conversation');
         }
     }
 

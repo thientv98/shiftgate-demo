@@ -51,33 +51,52 @@ export default {
         return {
             message: '',
             chat: [],
+            conversation_id: ''
         }
     },
     mounted() {
         let self = this
         $('#chat-input').keyup(function (event) { 
             if (event.keyCode == 13 && !event.shiftKey) {
-                self.sendMessage()
+                self.updateMessage()
             }
         })
     },
     methods: {
         fetchMessage() {
+            this.chat = []
             try {
                 this.$axios.get('getConversation').then(res => {
                     if (res.data.data.data.length > 0) {
+                        this.conversation_id = res.data.data.data[0].conversation_id
                             res.data.data.data.forEach(message => {
                             if(message.participation.messageable_type.includes('User')){
-                                this.sendMessage('admin',{id: message.id, body:message.body, time: message.created_at })
+                                this.updateMessage('admin',{id: message.id, body:message.body, time: message.created_at })
                             } else {
-                                this.sendMessage('client',{id: message.id, body:message.body, time: message.created_at })
+                                this.updateMessage('client',{id: message.id, body:message.body, time: message.created_at })
                             }
                         });
+                    } else {
+                        this.conversation_id = res.data.data.data.id || res.data.data.id
                     }
                 });
             } catch (e) {
                 console.log(e)
             }
+        },
+        newMessage(newMessages){
+            let tempNewMessages = newMessages.map(item => { return item.id })
+            let oldMessages = this.chat.map(item => { return item.id })
+            const difference = (a, b) => {
+                const s = new Set(b);
+                return a.filter(x => !s.has(x));
+            };
+
+            let newMessagesIds = tempNewMessages.length > oldMessages.length ? difference(tempNewMessages,oldMessages) : difference(oldMessages,tempNewMessages)
+            
+            let arrNewMessages = [];
+            newMessagesIds.forEach(x => arrNewMessages.push(newMessages.find(msg => msg.id == x)))
+            return arrNewMessages
         },
         showChatBox(){
             $("#chat-circle").toggle('scale')
@@ -85,34 +104,23 @@ export default {
             $('#chat-input').focus()
             this.fetchMessage();
             
-
             let times = 0;
             let interval = setInterval(() => {
                 try {
                     this.$axios.get('getConversation').then(res => {
                         if (res.data.data.data.length > 0 && res.data.data.data.length != this.chat.length) {
-                            let newMessages = res.data.data.data.map(item => { return item.id })
-                            let oldMessages = this.chat.map(item => { return item.id })
-                            const difference = (a, b) => {
-                                const s = new Set(b);
-                                return a.filter(x => !s.has(x));
-                            };
-
-                            let newMessagesIds = newMessages.length > oldMessages.length ? difference(newMessages,oldMessages) : difference(oldMessages,newMessages)
-                            
-                            let updateMessages = [];
-                            newMessagesIds.forEach(x => updateMessages.push(res.data.data.data.find(msg => msg.id == x)))
+                            let updateMessages = this.newMessage(res.data.data.data)
                             updateMessages.forEach(message => {
                                 if(message.participation.messageable_type.includes('User')){
-                                    this.sendMessage('admin',{id: message.id, body:message.body, time: message.created_at })
+                                    this.updateMessage('admin',{id: message.id, body:message.body, time: message.created_at })
                                 } else {
-                                    this.sendMessage('client',{id: message.id, body:message.body, time: message.created_at })
+                                    this.updateMessage('client',{id: message.id, body:message.body, time: message.created_at })
                                 }
                             });
                             times = 0
                         } 
                         times++
-                        if(times == 60 && res.data.data.data.length == this.chat.length){ // loop 60times == 10 minutes
+                        if((times == 60 && res.data.data.data.length == this.chat.length) || this.$store.state.auth.loggedIn){ // loop 60times == 10 minutes
                             clearInterval(interval);
                             return;
                         }
@@ -126,9 +134,38 @@ export default {
             $('#chat-input').blur()
             $("#chat-circle").toggle('scale')
             $(".chat-box").toggle('scale') 
-            this.chat = []
         },
-        sendMessage(type,data){
+        sendMessage(){
+            let data = {
+                type: "customer",
+                message : {
+                    body : this.message
+                }
+            }
+            try {
+                this.$axios.post(`chat/conversations/${this.conversation_id}/messages`, data).then(res => {
+                    if (res.data.code == 200) {
+                        this.$axios.get('getConversation').then(res => {
+                            if (res.data.data.data.length > 0 && res.data.data.data.length != this.chat.length) {
+                                let updateMessages = this.newMessage(res.data.data.data)
+                                updateMessages.forEach(message => {
+                                    if(message.participation.messageable_type.includes('User')){
+                                        this.updateMessage('admin',{id: message.id, body:message.body, time: message.created_at })
+                                    } else {
+                                        this.updateMessage('client',{id: message.id, body:message.body, time: message.created_at })
+                                    }
+                                });
+                            } 
+                        })
+                        this.message = ''
+                    }
+                });
+            } catch (e) {
+                console.log(e)
+            }
+
+        },
+        updateMessage(type,data){
             if(type == 'client'){
                 this.chat.push({
                 id: data.id,
@@ -146,8 +183,6 @@ export default {
             }
             this.message = ''
             this.scrollBottom()
-            
-            
         },
         scrollBottom(){
             $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000);
