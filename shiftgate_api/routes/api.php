@@ -66,6 +66,9 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('/info/save', 'InfoController@save');
     Route::delete('/info/delete', 'InfoController@delete');
 
+    // Chat
+    Route::get('getConversation/{id}', 'ChatController@getConversation');
+    Route::post('chat/conversations/{id}/messages', 'ChatController@storeMessage');
 });
 
 // Forgot Password

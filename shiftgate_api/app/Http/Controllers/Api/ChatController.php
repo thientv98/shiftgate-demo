@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ApiFront;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMessage;
@@ -155,22 +155,20 @@ class ChatController extends Controller
         }
     }
 
-    public function getConversation(Request $request)
+    public function getConversation(Request $request, $id)
     {
-        $user = $request->user();
+        $user = Customer::find($id);
         $conversations = Chat::conversations()->setParticipant($user)->get();
         if(count($conversations) == 0){
-            $participants = $request->user();
             $admin = User::all();
 
             /* Create a new conversation */
-            $conversation = Chat::createConversation([$participants], $request->input('data', []))->makePrivate(false);
+            $conversation = Chat::createConversation([$user], $request->input('data', []))->makePrivate(false);
 
             /* Add all the admin to this conversation */
             foreach ($admin as $item){
                 $conversation->addParticipants([$item]);
             }
-//            $conversation->data['id'] = $conversation->id;
             return $this->response(true, $conversation, 'New Conversation');
         } else {
             $conversation = Chat::conversations()->getById($conversations[0]->id);
