@@ -35,19 +35,17 @@
                         <div class="chat-panel">
                         <div class="chat-history">
                             <div class="row no-gutters" v-for="(item, index) in chat" :key="index">
-                                <div class="col-md-3" :class="item.type == 'right' ? 'offset-md-9' : ''">
-                                    <div class="chat-bubble" :class="item.type == 'left' ? 'chat-bubble--left' : 'chat-bubble--right'" :data-time="item.time">
-                                        {{item.message}}
-                                    </div>
+                                <div class="col-md-5" :class="item.type == 'right' ? 'offset-md-7' : ''">
+                                    <div class="chat-bubble" :class="item.type == 'left' ? 'chat-bubble--left' : 'chat-bubble--right'" 
+                                    :data-time="item.time">{{item.message}}</div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 pb-0">
                             <div class="chat-box-tray">
-                                <form @submit.prevent="sendMessage()" autocomplete="off">
-                                <!-- <i class="material-icons">sentiment_very_satisfied</i> -->
-                                <input id="chat-input" type="text" placeholder="Type your message here..." v-model="message" autocomplete="off">
+                                <form @submit.prevent="sendMessage()" autocomplete="off" class="d-inline-flex">
+                                <textarea id="chat-input" type="text" placeholder="Type your message here..." v-model="message" autocomplete="off"></textarea>
                                 <!-- <i class="material-icons">mic</i> -->
                                 <button type="submit" :disabled="message == ''"><i class="material-icons">send</i></button>
                                 </form>
@@ -104,7 +102,15 @@ export default {
             ],
         };
     },
-
+    mounted(){
+      let self = this
+      $('#chat-input').keyup(function (event) { 
+          if (event.keyCode == 13 && !event.shiftKey) {
+              event.preventDefault()
+              self.sendMessage()
+          }
+      })
+    },
     methods: {
         sendMessage(){
             let today = new Date()
@@ -179,7 +185,7 @@ $blue: #74b9ff;
   }
 }
 
-input {
+textarea {
   border: none;
   border-radius: 30px;
   width: calc(100% - 65px);
@@ -244,6 +250,7 @@ input {
   border-radius: 9px;
   position: relative;
   animation: fadeIn 1s ease-in;
+  white-space: pre-wrap;
   
   &:after {
     content: '';
@@ -285,7 +292,7 @@ input {
 }
 
 
-.offset-md-9 {
+.offset-md-7 {
   .chat-bubble {
     background: $blue;
     color: #fff;
@@ -303,12 +310,17 @@ input {
     form{
         width: 100%;
     }
-    input {
+    textarea {
         margin: 0 10px;
         padding: 6px 15px;
         background-color: white;
+        resize: none;
         &::placeholder{
             color: gray;
+        }
+        &::placeholder {
+            transform: translateY(11px);
+            text-align: center;
         }
     }
   

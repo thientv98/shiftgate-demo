@@ -34,6 +34,24 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     //electronic signature
     Route::post('electronic-signature', 'SignatureController@index');
 
+    //Chat
+    Route::resource('chat/conversations', 'ChatController')->except(['create', 'edit', 'destroy']);
+    Route::get('getConversation', 'ChatController@getConversation');
+    Route::group(['prefix' => '/chat/conversations'], function () {
+        /* Conversation Participation */
+        Route::post('{id}/participants', 'ChatController@storeParticipation');
+        Route::delete('{id}/participants/{participation_id}', 'ChatController@destroyParticipation');
+        Route::get('{id}/participants/{participation_id}', 'ChatController@showParticipation');
+        Route::get('{id}/participants', 'ChatController@getParticipation');
+
+        /* Messaging */
+        Route::post('{id}/messages', 'ChatController@storeMessage');
+        Route::get('{id}/messages', 'ChatController@getMessage');
+        Route::get('{id}/messages/{message_id}', 'ChatController@showMessage');
+        Route::delete('{id}/messages', 'ChatController@deleteAllMessage');
+        Route::delete('{id}/messages/{message_id}', 'ChatController@destroyMessage');
+    });
+
 });
 
 Route::get('maker-list', 'HomeController@getMakerList');

@@ -198,6 +198,8 @@ return [
 
         // elibyy/tcpdf-laravel
         Elibyy\TCPDF\ServiceProvider::class,
+        // chat
+        Musonza\Chat\ChatServiceProvider::class
     ],
 
     /*
@@ -250,7 +252,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'PDF' => Elibyy\TCPDF\Facades\TCPDF::class
+        'PDF' => Elibyy\TCPDF\Facades\TCPDF::class,
+        'Chat' => Musonza\Chat\Facades\ChatFacade::class
     ],
 
 ];
