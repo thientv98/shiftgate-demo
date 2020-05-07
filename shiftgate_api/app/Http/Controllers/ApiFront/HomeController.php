@@ -76,24 +76,11 @@ class HomeController extends Controller
      */
     public function createPDF(Request $request)
     {
-        // set certificate file
-        // $certificate = 'file://'.base_path().'/public/tcpdf.crt';
-        // set additional information in the signature
-        // $info = array(
-        //     'Name' => 'TCPDF',
-        //     'Location' => 'Office',
-        //     'Reason' => 'Testing TCPDF',
-        //     'ContactInfo' => 'http://www.tcpdf.org',
-        // );
-        // dd($certificate);
-        // set document signature
-        // PDF::setSignature($certificate, $certificate, 'tcpdfdemo', '', 2, $info);
-        
         PDF::SetFont('kozgopromedium', '', 13);
         PDF::AddPage();
 
         // print a line of text
-        $text = view('tcpdf');
+        $text = view('pdf/seller');
 
         // add view content
         PDF::writeHTML($text, true, 0, true, 0);
@@ -102,16 +89,12 @@ class HomeController extends Controller
         $data = str_replace(' ', '+', $data);
         $imgdata = base64_decode($data);
 
-        
+         // add image for signature
         PDF::Image('@'.$imgdata, 140, 60, 60, 40, 'PNG'); // Left, bottom, Width, Height
 
-        // add image for signature
-        // PDF::Image('tcpdf.png', 180, 60, 15, 15, 'PNG');
-        
         // define active area for signature appearance
-        PDF::setSignatureAppearance(180, 60, 15, 15);
-        
-        // dd(public_path('hello_world.pdf'));
+        // PDF::setSignatureAppearance(180, 60, 15, 15);
+
         // save pdf file
         PDF::Output(public_path('seller.pdf'), 'F');
         PDF::reset();
