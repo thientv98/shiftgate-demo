@@ -57,3 +57,7 @@ Route::get('pdf/seller', function () {
 Route::get('pdf/buyer-cash', function () {
     return view('pdf.buyer-cash');
 });
+
+Route::get('pdf/buyer-loan', function () {
+    return view('pdf.buyer-loan');
+});
